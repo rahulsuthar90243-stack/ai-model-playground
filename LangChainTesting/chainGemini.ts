@@ -19,10 +19,12 @@ const model = new ChatGoogleGenerativeAI({
 const prompt = PromptTemplate.fromTemplate(
   "Explain the concept of {topic} to a beginner."
 );
+
 const chain = new LLMChain({
   llm: model,
   prompt,
 });
 
 const response = await chain.run("quantum computing");
+
 console.log("Gemini Response:\n", response);
